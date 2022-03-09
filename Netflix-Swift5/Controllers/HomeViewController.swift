@@ -10,8 +10,8 @@ import UIKit
 class HomeViewController: UIViewController {
     
     private let tableFeedView: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "FeedTableViewCell")
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(FeedTableViewCell.self, forCellReuseIdentifier: FeedTableViewCell.identifier)
         return table
     }()
 
@@ -32,17 +32,26 @@ private extension HomeViewController {
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
         tableFeedView.frame = view.bounds
+        tableFeedView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 20
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FeedTableViewCell", for: indexPath)
-        cell.backgroundColor = .red
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier,
+                                                       for: indexPath) as? FeedTableViewCell else {
+            return UITableViewCell()
+        }
+        
         return cell
     }
     

@@ -23,8 +23,7 @@ private extension MainTabbarViewController {
         let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: DownloadsViewController())
         
-        vc1.navigationBar.prefersLargeTitles = true
-        vc1.navigationBar.topItem?.title = "Home"
+        vc1.title = "Home"
         vc2.title = "Upcooming"
         vc3.title = "Search"
         vc4.title = "Downlooads"
