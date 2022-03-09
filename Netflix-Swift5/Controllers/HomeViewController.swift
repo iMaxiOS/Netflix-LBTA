@@ -32,7 +32,7 @@ private extension HomeViewController {
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
         tableFeedView.frame = view.bounds
-        tableFeedView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        tableFeedView.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
 }
 
