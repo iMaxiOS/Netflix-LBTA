@@ -27,6 +27,7 @@
 		ACFA4D0727D9DEC500DB7692 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0627D9DEC500DB7692 /* Extensions.swift */; };
 		ACFA4D0D27D9FD5300DB7692 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0C27D9FD5300DB7692 /* MovieCollectionViewCell.swift */; };
 		ACFA4D0F27DA4F1600DB7692 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */; };
+		ACFA4D1327DA835800DB7692 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		ACFA4D0627D9DEC500DB7692 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACFA4D0C27D9FD5300DB7692 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
+		ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		B4D8C081C82953F520D5C2C5 /* Pods-Netflix-Swift5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix-Swift5.release.xcconfig"; path = "Target Support Files/Pods-Netflix-Swift5/Pods-Netflix-Swift5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,10 +122,8 @@
 		AC3F53C227D8A4FA009B74F5 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				AC3F53C327D8A53D009B74F5 /* HomeViewController.swift */,
-				AC3F53C527D8A556009B74F5 /* UpcomingViewController.swift */,
-				AC3F53C727D8A563009B74F5 /* SearchViewController.swift */,
-				AC3F53C927D8A575009B74F5 /* DownloadsViewController.swift */,
+				ACFA4D1127DA822200DB7692 /* General */,
+				ACFA4D1027DA821A00DB7692 /* Core */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -162,7 +162,6 @@
 				AC3F53B427D8A4E7009B74F5 /* Main.storyboard */,
 				AC3F53AE27D8A4E7009B74F5 /* AppDelegate.swift */,
 				AC3F53B027D8A4E7009B74F5 /* SceneDelegate.swift */,
-				AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */,
 				ACFA4D0027D93A0D00DB7692 /* Constants.swift */,
 				ACFA4D0427D943C800DB7692 /* APIError.swift */,
 				ACFA4D0627D9DEC500DB7692 /* Extensions.swift */,
@@ -176,6 +175,26 @@
 				ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		ACFA4D1027DA821A00DB7692 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */,
+				AC3F53C327D8A53D009B74F5 /* HomeViewController.swift */,
+				AC3F53C527D8A556009B74F5 /* UpcomingViewController.swift */,
+				AC3F53C727D8A563009B74F5 /* SearchViewController.swift */,
+				AC3F53C927D8A575009B74F5 /* DownloadsViewController.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		ACFA4D1127DA822200DB7692 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */,
+			);
+			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +325,7 @@
 				AC3F53C627D8A556009B74F5 /* UpcomingViewController.swift in Sources */,
 				ACFA4D0F27DA4F1600DB7692 /* UpcomingTableViewCell.swift in Sources */,
 				AC3F53C427D8A53D009B74F5 /* HomeViewController.swift in Sources */,
+				ACFA4D1327DA835800DB7692 /* SearchResultViewController.swift in Sources */,
 				ACFA4D0D27D9FD5300DB7692 /* MovieCollectionViewCell.swift in Sources */,
 				ACFA4D0527D943C800DB7692 /* APIError.swift in Sources */,
 				ACFA4D0727D9DEC500DB7692 /* Extensions.swift in Sources */,

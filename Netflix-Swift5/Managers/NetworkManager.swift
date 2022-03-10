@@ -130,4 +130,28 @@ final class NetworkManager {
         
         task.resume()
     }
+    
+    func getDiscover(completion: @escaping (Result<[Movie], APIError>) -> Void) {
+        guard let url = URL(string: Constants.baseURL + "/3/discover/movie?api_key=" + Constants.API_KEY + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let descover = try decoder.decode(MovieListResponse.self, from: data)
+
+                completion(.success(descover.movie))
+            } catch {
+                completion(.failure(APIError.failedTogetMovies))
+            }
+        }
+        task.resume()
+    }
 }

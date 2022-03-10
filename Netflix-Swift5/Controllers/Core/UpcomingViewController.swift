@@ -21,7 +21,7 @@ class UpcomingViewController: UIViewController {
         let activity = UIActivityIndicatorView(style: .medium)
         activity.tintColor = .label
         activity.startAnimating()
-//        activity.hidesWhenStopped = true
+        activity.hidesWhenStopped = true
         activity.translatesAutoresizingMaskIntoConstraints = false
         return activity
     }()
@@ -41,12 +41,12 @@ class UpcomingViewController: UIViewController {
 
 private extension UpcomingViewController {
     func setup() {
+        view.backgroundColor = .systemBackground
         view.addSubview(upcomingTableView)
         view.addSubview(activityIndcator)
         upcomingTableView.frame = view.bounds
         upcomingTableView.delegate = self
         upcomingTableView.dataSource = self
-        view.backgroundColor = .systemBackground
         title = "Upcoming"
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true

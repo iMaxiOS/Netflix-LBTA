@@ -30,6 +30,7 @@ class UpcomingTableViewCell: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 4
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = .label
         return label
@@ -74,6 +75,9 @@ extension UpcomingTableViewCell {
         NSLayoutConstraint.activate([
             movieImageView.widthAnchor.constraint(equalToConstant: 100),
             movieImageView.heightAnchor.constraint(equalToConstant: 130),
+            
+            playButton.widthAnchor.constraint(equalToConstant: 44),
+            playButton.heightAnchor.constraint(equalToConstant: 44),
         
             hStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
             hStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 10),
