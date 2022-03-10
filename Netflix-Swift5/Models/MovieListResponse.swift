@@ -1,5 +1,5 @@
 //
-//  TrendingMovie.swift
+//  MovieListResponse.swift
 //  Netflix-Swift5
 //
 //  Created by Maxim Hranchenko on 09.03.2022.

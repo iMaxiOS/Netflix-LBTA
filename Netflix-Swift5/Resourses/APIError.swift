@@ -7,6 +7,12 @@
 
 import Foundation
 
-enum APIError: Error {
+enum APIError: String, Error {
     case failedTogetMovies
+    
+    var localizedDescription: String {
+        switch self {
+        case .failedTogetMovies: return "Failed request"
+        }
+    }
 }

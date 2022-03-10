@@ -22,14 +22,7 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .systemBackground
         view.addSubview(tableFeedView)
         
-        sharedNetworkManager().getTranding { respoonse in
-            switch respoonse {
-            case .success(let movies):
-                print(movies)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+        fetchData()
     }
 
     override func viewDidLayoutSubviews() {
@@ -40,6 +33,55 @@ class HomeViewController: UIViewController {
 }
 
 private extension HomeViewController {
+    
+    func fetchData() {
+        sharedNetworkManager().getTrandingMovies { response in
+            switch response {
+            case .success(let movies):
+                print(movies)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        sharedNetworkManager().getTrandingTvs { response in
+            switch response {
+            case .success(let tvs):
+                print(tvs)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        sharedNetworkManager().getMoviesUpcoming { response in
+            switch response {
+            case .success(let moviesUpcoming):
+                print(moviesUpcoming)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+        sharedNetworkManager().getPopular { response in
+            switch response {
+            case .success(let popular):
+                print(popular)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        
+        sharedNetworkManager().getTopRated { response in
+            switch response {
+            case .success(let popular):
+                print(popular)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+
+    }
+    
     func setup() {
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
