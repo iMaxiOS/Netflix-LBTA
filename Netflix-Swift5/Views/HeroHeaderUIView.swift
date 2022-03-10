@@ -16,6 +16,7 @@ final class HeroHeaderUIView: UIView {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.label.cgColor
+        button.tintColor = .label
         return button
     }()
     
@@ -26,6 +27,7 @@ final class HeroHeaderUIView: UIView {
         button.layer.cornerRadius = 5
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.label.cgColor
+        button.tintColor = .label
         return button
     }()
     

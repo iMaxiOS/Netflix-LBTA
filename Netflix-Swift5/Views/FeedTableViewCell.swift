@@ -58,6 +58,6 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
 extension FeedTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.size.width - 20, height: 200)
+        return CGSize(width: 140, height: 200)
     }
 }
