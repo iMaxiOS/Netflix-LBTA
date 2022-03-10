@@ -16,6 +16,15 @@ class UpcomingViewController: UIViewController {
         table.register(UpcomingTableViewCell.self, forCellReuseIdentifier: UpcomingTableViewCell.identifier)
         return table
     }()
+    
+    private let activityIndcator: UIActivityIndicatorView = {
+        let activity = UIActivityIndicatorView(style: .medium)
+        activity.tintColor = .label
+        activity.startAnimating()
+//        activity.hidesWhenStopped = true
+        activity.translatesAutoresizingMaskIntoConstraints = false
+        return activity
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +35,14 @@ class UpcomingViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setup()
+        setupConstrants()
     }
 }
 
 private extension UpcomingViewController {
     func setup() {
         view.addSubview(upcomingTableView)
+        view.addSubview(activityIndcator)
         upcomingTableView.frame = view.bounds
         upcomingTableView.delegate = self
         upcomingTableView.dataSource = self
@@ -39,6 +50,13 @@ private extension UpcomingViewController {
         title = "Upcoming"
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    func setupConstrants() {
+        NSLayoutConstraint.activate([
+            activityIndcator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndcator.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
     
     func fetchUpcomingData() {
@@ -49,6 +67,7 @@ private extension UpcomingViewController {
                 
                 DispatchQueue.main.async {
                     self?.upcomingTableView.reloadData()
+                    self?.activityIndcator.stopAnimating()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
