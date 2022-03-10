@@ -15,7 +15,6 @@ class MovieCollectionViewCell: UICollectionViewCell {
     private let movieImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 6
         image.clipsToBounds = true
         return image
@@ -33,5 +32,9 @@ class MovieCollectionViewCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure(item: Movie) {
+        movieImageView.sd_setImage(with: item.urlImage)
     }
 }

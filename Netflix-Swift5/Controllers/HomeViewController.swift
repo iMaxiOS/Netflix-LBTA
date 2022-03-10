@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case TrandingMovies = 0
+    case TrandingTv = 1
+    case Popular = 2
+    case UpcomingMovies = 3
+    case TopRating = 4
+}
+
 class HomeViewController: UIViewController {
     
     private let sectionTitles = ["Tranding Movies", "Tranding Tv", "Popular", "Upcoming Movies", "Top Rating"]
@@ -21,8 +29,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         view.addSubview(tableFeedView)
-        
-        fetchData()
     }
 
     override func viewDidLayoutSubviews() {
@@ -33,59 +39,12 @@ class HomeViewController: UIViewController {
 }
 
 private extension HomeViewController {
-    
-    func fetchData() {
-        sharedNetworkManager().getTrandingMovies { response in
-            switch response {
-            case .success(let movies):
-                print(movies)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        sharedNetworkManager().getTrandingTvs { response in
-            switch response {
-            case .success(let tvs):
-                print(tvs)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        sharedNetworkManager().getMoviesUpcoming { response in
-            switch response {
-            case .success(let moviesUpcoming):
-                print(moviesUpcoming)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-        sharedNetworkManager().getPopular { response in
-            switch response {
-            case .success(let popular):
-                print(popular)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        sharedNetworkManager().getTopRated { response in
-            switch response {
-            case .success(let popular):
-                print(popular)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-
-    }
-    
     func setup() {
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
         tableFeedView.frame = view.bounds
+        tableFeedView.backgroundColor = .clear
+        tableFeedView.separatorColor = .clear
         tableFeedView.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
@@ -116,6 +75,56 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: FeedTableViewCell.identifier,
                                                        for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
+        }
+        
+        switch indexPath.section {
+        case Sections.TrandingMovies.rawValue:
+            sharedNetworkManager().getTrandingMovies { response in
+                switch response {
+                case .success(let movies):
+                    cell.configure(with: movies)
+                case .failure(let error):
+                    print(error.localizedDescription, APIError.failedTogetMovies)
+                }
+            }
+        case Sections.TrandingTv.rawValue:
+            sharedNetworkManager().getTrandingTvs { response in
+                switch response {
+                case .success(let tvs):
+                    cell.configure(with: tvs)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.Popular.rawValue:
+            sharedNetworkManager().getPopular { response in
+                switch response {
+                case .success(let popular):
+                    cell.configure(with: popular)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.UpcomingMovies.rawValue:
+            sharedNetworkManager().getMoviesUpcoming { response in
+                switch response {
+                case .success(let moviesUpcoming):
+                    cell.configure(with: moviesUpcoming)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        case Sections.TopRating.rawValue:
+            sharedNetworkManager().getTopRated { response in
+                switch response {
+                case .success(let topRating):
+                    cell.configure(with: topRating)
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+        default:
+            break
         }
         
         return cell

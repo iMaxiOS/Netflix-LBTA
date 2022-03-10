@@ -80,7 +80,6 @@
 				309B91D5BEE70DB94517251C /* Pods-Netflix-Swift5.debug.xcconfig */,
 				B4D8C081C82953F520D5C2C5 /* Pods-Netflix-Swift5.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -111,12 +110,6 @@
 				ACFA4CF627D8B7B600DB7692 /* Models */,
 				ACFA4CF527D8B7AD00DB7692 /* Views */,
 				AC3F53C227D8A4FA009B74F5 /* Controllers */,
-				AC3F53AE27D8A4E7009B74F5 /* AppDelegate.swift */,
-				AC3F53B027D8A4E7009B74F5 /* SceneDelegate.swift */,
-				AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */,
-				AC3F53B427D8A4E7009B74F5 /* Main.storyboard */,
-				AC3F53B727D8A4E8009B74F5 /* Assets.xcassets */,
-				AC3F53B927D8A4E8009B74F5 /* LaunchScreen.storyboard */,
 				AC3F53BC27D8A4E8009B74F5 /* Info.plist */,
 			);
 			path = "Netflix-Swift5";
@@ -161,6 +154,12 @@
 		ACFA4CF827D8B7F600DB7692 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				AC3F53B727D8A4E8009B74F5 /* Assets.xcassets */,
+				AC3F53B927D8A4E8009B74F5 /* LaunchScreen.storyboard */,
+				AC3F53B427D8A4E7009B74F5 /* Main.storyboard */,
+				AC3F53AE27D8A4E7009B74F5 /* AppDelegate.swift */,
+				AC3F53B027D8A4E7009B74F5 /* SceneDelegate.swift */,
+				AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */,
 				ACFA4D0027D93A0D00DB7692 /* Constants.swift */,
 				ACFA4D0427D943C800DB7692 /* APIError.swift */,
 				ACFA4D0627D9DEC500DB7692 /* Extensions.swift */,

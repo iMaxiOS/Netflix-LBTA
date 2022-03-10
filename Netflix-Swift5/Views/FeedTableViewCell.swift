@@ -11,11 +11,14 @@ class FeedTableViewCell: UITableViewCell {
     
     static let identifier = "FeedTableViewCell"
     
+    private var movies: [Movie] = [Movie]()
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collection.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
+        collection.register(MovieCollectionViewCell.self, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
         return collection
     }()
 
@@ -34,6 +37,16 @@ class FeedTableViewCell: UITableViewCell {
     }
 }
 
+extension FeedTableViewCell {
+    public func configure(with model: [Movie]) {
+        self.movies = model
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+}
+
 private extension FeedTableViewCell {
     
     func setup() {
@@ -46,12 +59,13 @@ private extension FeedTableViewCell {
 
 extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .yellow
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as? MovieCollectionViewCell else { return UICollectionViewCell() }
+        cell.configure(item: movies[indexPath.row])
+        
         return cell
     }
 }
