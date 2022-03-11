@@ -29,6 +29,8 @@
 		ACFA4D0F27DA4F1600DB7692 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */; };
 		ACFA4D1327DA835800DB7692 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */; };
 		ACFA4D1527DB73D400DB7692 /* YoutubeModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1427DB73D400DB7692 /* YoutubeModelResponse.swift */; };
+		ACFA4D1727DB9BD800DB7692 /* MoviePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1627DB9BD800DB7692 /* MoviePreviewViewController.swift */; };
+		ACFA4D1927DBD5FD00DB7692 /* MoviePreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1827DBD5FD00DB7692 /* MoviePreviewViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		ACFA4D1427DB73D400DB7692 /* YoutubeModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeModelResponse.swift; sourceTree = "<group>"; };
+		ACFA4D1627DB9BD800DB7692 /* MoviePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewController.swift; sourceTree = "<group>"; };
+		ACFA4D1827DBD5FD00DB7692 /* MoviePreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviePreviewViewModel.swift; sourceTree = "<group>"; };
 		B4D8C081C82953F520D5C2C5 /* Pods-Netflix-Swift5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix-Swift5.release.xcconfig"; path = "Target Support Files/Pods-Netflix-Swift5/Pods-Netflix-Swift5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -153,6 +157,7 @@
 		ACFA4CF727D8B7CE00DB7692 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				ACFA4D1827DBD5FD00DB7692 /* MoviePreviewViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -196,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */,
+				ACFA4D1627DB9BD800DB7692 /* MoviePreviewViewController.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -323,12 +329,14 @@
 				AC3F53CC27D8A604009B74F5 /* MainTabbarViewController.swift in Sources */,
 				ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */,
 				AC3F53CA27D8A575009B74F5 /* DownloadsViewController.swift in Sources */,
+				ACFA4D1927DBD5FD00DB7692 /* MoviePreviewViewModel.swift in Sources */,
 				AC3F53AF27D8A4E7009B74F5 /* AppDelegate.swift in Sources */,
 				AC3F53B127D8A4E7009B74F5 /* SceneDelegate.swift in Sources */,
 				ACFA4D0327D93FFC00DB7692 /* MovieListResponse.swift in Sources */,
 				AC3F53C627D8A556009B74F5 /* UpcomingViewController.swift in Sources */,
 				ACFA4D0F27DA4F1600DB7692 /* UpcomingTableViewCell.swift in Sources */,
 				AC3F53C427D8A53D009B74F5 /* HomeViewController.swift in Sources */,
+				ACFA4D1727DB9BD800DB7692 /* MoviePreviewViewController.swift in Sources */,
 				ACFA4D1327DA835800DB7692 /* SearchResultViewController.swift in Sources */,
 				ACFA4D0D27D9FD5300DB7692 /* MovieCollectionViewCell.swift in Sources */,
 				ACFA4D0527D943C800DB7692 /* APIError.swift in Sources */,
@@ -480,7 +488,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R4XB56HC9M;
+				DEVELOPMENT_TEAM = PK7V385T7X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Netflix-Swift5/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -509,7 +517,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = R4XB56HC9M;
+				DEVELOPMENT_TEAM = PK7V385T7X;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Netflix-Swift5/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

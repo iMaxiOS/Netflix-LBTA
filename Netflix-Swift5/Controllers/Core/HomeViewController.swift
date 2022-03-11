@@ -40,6 +40,7 @@ class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func setup() {
+        
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
         tableFeedView.frame = view.bounds
@@ -61,6 +62,16 @@ private extension HomeViewController {
     }
 }
 
+extension HomeViewController: FeedTableViewCellDelegate {
+    func tapped(_ cell: FeedTableViewCell, model: MoviePreviewViewModel) {
+        DispatchQueue.main.async { [weak self] in
+            let vc = MoviePreviewViewController()
+            vc.configure(with: model)
+            self?.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+}
+
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -76,6 +87,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                                                        for: indexPath) as? FeedTableViewCell else {
             return UITableViewCell()
         }
+        
+        cell.delegate = self
         
         switch indexPath.section {
         case Sections.TrandingMovies.rawValue:

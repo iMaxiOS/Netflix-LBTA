@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol FeedTableViewCellDelegate: AnyObject {
+    func tapped(_ cell: FeedTableViewCell, model: MoviePreviewViewModel)
+}
+
 class FeedTableViewCell: UITableViewCell {
     
     static let identifier = "FeedTableViewCell"
+    
+    weak var delegate: FeedTableViewCellDelegate?
     
     private var movies: [Movie] = [Movie]()
     
@@ -67,6 +73,25 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         cell.configure(item: movies[indexPath.row])
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+            
+        let name = movies[indexPath.row]
+        guard let movieName = name.title else { return }
+        
+        sharedNetworkManager().getMovie(query: movieName + " trailer") { response in
+            switch response {
+            case .success(let movie):
+                let model = MoviePreviewViewModel(title: movieName,
+                                                  overview: name.overview ?? "",
+                                                  movie: movie.id)
+                self.delegate?.tapped(self, model: model)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
