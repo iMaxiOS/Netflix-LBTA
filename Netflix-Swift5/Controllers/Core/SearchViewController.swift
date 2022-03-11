@@ -36,8 +36,7 @@ class SearchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        fetchDiscoverData()
-    }
+        fetchDiscoverData()    }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -54,7 +53,6 @@ private extension SearchViewController {
         discoverTableView.frame = view.bounds
         discoverTableView.delegate = self
         discoverTableView.dataSource = self
-        searchController.searchBar.delegate = self
         searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         title = "Search"
@@ -104,12 +102,6 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
-    }
-}
-
-extension SearchViewController: UISearchBarDelegate {
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        
     }
 }
 

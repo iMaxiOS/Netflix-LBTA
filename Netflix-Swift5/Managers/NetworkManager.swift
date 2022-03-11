@@ -179,4 +179,29 @@ final class NetworkManager {
         }
         task.resume()
     }
+    
+    func getMovie(query: String,completion: @escaping (Result<YoutubeModelResponse.ItemElement, APIError>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: "\(Constants.youtubeBaseURL)/v3/search?q=\(query)&key=\(Constants.youtube_API_KEY)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request, completionHandler: { data, _, error in
+            
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let result = try JSONDecoder().decode(YoutubeModelResponse.self, from: data)
+                completion(.success(result.items[0]))
+            } catch {
+                completion(.failure(APIError.failedTogetMovies))
+            }
+        })
+        
+        task.resume()
+    }
 }
+

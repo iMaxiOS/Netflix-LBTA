@@ -28,6 +28,7 @@
 		ACFA4D0D27D9FD5300DB7692 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0C27D9FD5300DB7692 /* MovieCollectionViewCell.swift */; };
 		ACFA4D0F27DA4F1600DB7692 /* UpcomingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */; };
 		ACFA4D1327DA835800DB7692 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */; };
+		ACFA4D1527DB73D400DB7692 /* YoutubeModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4D1427DB73D400DB7692 /* YoutubeModelResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		ACFA4D0C27D9FD5300DB7692 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingTableViewCell.swift; sourceTree = "<group>"; };
 		ACFA4D1227DA835800DB7692 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		ACFA4D1427DB73D400DB7692 /* YoutubeModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubeModelResponse.swift; sourceTree = "<group>"; };
 		B4D8C081C82953F520D5C2C5 /* Pods-Netflix-Swift5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Netflix-Swift5.release.xcconfig"; path = "Target Support Files/Pods-Netflix-Swift5/Pods-Netflix-Swift5.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFA4D0227D93FFC00DB7692 /* MovieListResponse.swift */,
+				ACFA4D1427DB73D400DB7692 /* YoutubeModelResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				AC3F53C827D8A563009B74F5 /* SearchViewController.swift in Sources */,
 				ACFA4D0127D93A0D00DB7692 /* Constants.swift in Sources */,
 				ACFA4CFB27D8B92800DB7692 /* FeedTableViewCell.swift in Sources */,
+				ACFA4D1527DB73D400DB7692 /* YoutubeModelResponse.swift in Sources */,
 				ACFA4CFF27D939D800DB7692 /* NetworkManager.swift in Sources */,
 				AC3F53CC27D8A604009B74F5 /* MainTabbarViewController.swift in Sources */,
 				ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */,
