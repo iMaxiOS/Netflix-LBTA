@@ -54,6 +54,8 @@ private extension SearchViewController {
         discoverTableView.frame = view.bounds
         discoverTableView.delegate = self
         discoverTableView.dataSource = self
+        searchController.searchBar.delegate = self
+        searchController.searchResultsUpdater = self
         navigationItem.searchController = searchController
         title = "Search"
         navigationController?.navigationItem.largeTitleDisplayMode = .always
@@ -102,5 +104,32 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let query = searchController.searchBar.text,
+              !query.trimmingCharacters(in: .whitespaces).isEmpty,
+              query.trimmingCharacters(in: .whitespaces).count >= 3,
+              let searchController = searchController.searchResultsController as? SearchResultViewController else {
+            return
+        }
+        
+        sharedNetworkManager().search(with: query) { response in
+            switch response {
+            case .success(let movies):
+                searchController.configure(with: movies)
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

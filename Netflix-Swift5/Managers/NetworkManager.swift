@@ -154,4 +154,29 @@ final class NetworkManager {
         }
         task.resume()
     }
+    
+    func search(with query: String, completion: @escaping (Result<[Movie], APIError>) -> Void) {
+        guard let query = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) else { return }
+        guard let url = URL(string: Constants.baseURL + "/3/search/movie?api_key=" + Constants.API_KEY + "&language=en-US&query=\(query)") else { return }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, _, error in
+            
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let descover = try decoder.decode(MovieListResponse.self, from: data)
+
+                completion(.success(descover.movie))
+            } catch {
+                completion(.failure(APIError.failedTogetMovies))
+            }
+        }
+        task.resume()
+    }
 }
