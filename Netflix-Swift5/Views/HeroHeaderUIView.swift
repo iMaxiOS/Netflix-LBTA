@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class HeroHeaderUIView: UIView {
     
@@ -37,6 +38,28 @@ final class HeroHeaderUIView: UIView {
         image.clipsToBounds = true
         return image
     }()
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addSubview(heroImageView)
+        addGradient()
+        addSubview(playButton)
+        addSubview(downloadButton)
+        addConstraints()
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        heroImageView.frame = bounds
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension HeroHeaderUIView {
     
     private func addGradient() {
         let gradientLayer = CAGradientLayer()
@@ -56,22 +79,8 @@ final class HeroHeaderUIView: UIView {
             downloadButton.widthAnchor.constraint(equalToConstant: 120),
         ])
     }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addSubview(heroImageView)
-        addGradient()
-        addSubview(playButton)
-        addSubview(downloadButton)
-        addConstraints()
-    }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        heroImageView.frame = bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    func configure(with model: Movie) {
+        heroImageView.sd_setImage(with: model.urlImage)
     }
 }

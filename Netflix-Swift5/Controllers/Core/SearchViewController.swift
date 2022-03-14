@@ -103,6 +103,27 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let discover = discovers[indexPath.row]
+        guard let titleMovie = discover.title else { return }
+        
+        sharedNetworkManager().getMovie(query: titleMovie) { [weak self] result in
+            switch result {
+            case .success(let movie):
+                
+                DispatchQueue.main.async {
+                    let vc = MoviePreviewViewController()
+                    vc.configure(with: MoviePreviewViewModel(title: titleMovie, overview: discover.overview ?? "", movie: movie.id))
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating {

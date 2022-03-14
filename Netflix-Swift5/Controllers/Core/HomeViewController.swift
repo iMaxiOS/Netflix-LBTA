@@ -17,6 +17,9 @@ enum Sections: Int {
 
 class HomeViewController: UIViewController {
     
+    private var headerView: HeroHeaderUIView?
+    private var randomTradingMovie: Movie?
+    
     private let sectionTitles = ["Tranding Movies", "Tranding Tv", "Popular", "Upcoming Movies", "Top Rating"]
     
     private let tableFeedView: UITableView = {
@@ -33,20 +36,21 @@ class HomeViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setup()
+        configureHeroHeaderView()
         setupNavBar()
+        setup()
     }
 }
 
 private extension HomeViewController {
     func setup() {
-        
         tableFeedView.dataSource = self
         tableFeedView.delegate = self
         tableFeedView.frame = view.bounds
         tableFeedView.backgroundColor = .clear
         tableFeedView.separatorColor = .clear
-        tableFeedView.tableHeaderView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        headerView = HeroHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        tableFeedView.tableHeaderView = headerView
     }
     
     func setupNavBar() {
@@ -58,7 +62,24 @@ private extension HomeViewController {
         let playBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         
         navigationItem.rightBarButtonItems = [personBarButtonItem, playBarButtonItem]
-        navigationController?.navigationBar.tintColor = .label
+    }
+    
+    func configureHeroHeaderView() {
+        sharedNetworkManager().getTrandingMovies { [weak self] result in
+            switch result {
+            case .success(let movie):
+                let selectedMovie = movie.randomElement()
+                self?.randomTradingMovie = selectedMovie
+                self?.headerView?.configure(with: selectedMovie ?? Movie(id: selectedMovie?.id ?? 0,
+                                                                         title: selectedMovie?.title ?? "",
+                                                                         overview: selectedMovie?.overview ?? "",
+                                                                         posterImage: selectedMovie?.posterImage ?? "",
+                                                                         releaseDate: selectedMovie?.releaseDate ?? "",
+                                                                         rate: selectedMovie?.rate ?? 0))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }
 
