@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol SearchResultViewControllerDelegate: AnyObject {
+    func searchResultViewControllerDidTapped(model: MoviePreviewViewModel)
+}
+
 class SearchResultViewController: UIViewController {
     
     private var movies: [Movie] = [Movie]()
+     
+    weak var delegate: SearchResultViewControllerDelegate?
     
     private let searchCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -64,5 +70,22 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         cell.configure(item: movies[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        searchCollectionView.deselectItem(at: indexPath, animated: true)
+        
+        let movie = movies[indexPath.row]
+        guard let titleMovie = movie.title else { return }
+        
+        sharedNetworkManager().getMovie(query: titleMovie) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let movieResponse):
+                self.delegate?.searchResultViewControllerDidTapped(model: MoviePreviewViewModel(title: titleMovie, overview: movie.overview ?? "", movie: movieResponse.id))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 }

@@ -140,9 +140,20 @@ extension SearchViewController: UISearchResultsUpdating {
             switch response {
             case .success(let movies):
                 searchController.configure(with: movies)
+                searchController.delegate = self
             case .failure(let error):
                 print(error.localizedDescription)
             }
+        }
+    }
+}
+
+extension SearchViewController: SearchResultViewControllerDelegate {
+    func searchResultViewControllerDidTapped(model: MoviePreviewViewModel) {
+        DispatchQueue.main.async {
+            let vc = MoviePreviewViewController()
+            vc.configure(with: model)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
 }
