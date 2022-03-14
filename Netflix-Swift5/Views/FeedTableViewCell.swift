@@ -61,6 +61,14 @@ private extension FeedTableViewCell {
         collectionView.dataSource = self
         collectionView.frame = contentView.bounds
     }
+    
+    func download(_ indexPath: IndexPath) -> UIAction {
+        return UIAction(title: "Download", image: UIImage(systemName: "square.and.arrow.down")) { [weak self] action in
+            let movie = self?.movies[indexPath.row]
+            
+            debugPrint(movie?.id ?? 0)
+        }
+    }
 }
 
 extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegate {
@@ -91,6 +99,15 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             case .failure(let error):
                 print(error.localizedDescription)
             }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        contextMenuConfigurationForItemAt indexPath: IndexPath,
+                        point: CGPoint) -> UIContextMenuConfiguration? {
+        return UIContextMenuConfiguration(identifier: nil, previewProvider: nil) { suggestedActions in
+            let download = self.download(indexPath)
+            return UIMenu(title: "", children: [download])
         }
     }
 }
