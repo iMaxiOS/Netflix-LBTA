@@ -34,7 +34,8 @@ private extension SettingViewController {
         sectionTableView.frame = view.bounds
         sectionTableView.delegate = self
         sectionTableView.dataSource = self
-        title = "Settings"
+        sectionTableView.tableHeaderView = HeroSettingUIVIew(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 144))
+        title = "My Account"
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         navigationController?.navigationBar.prefersLargeTitles = true
     }
@@ -59,8 +60,4 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
-    
-//    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-//        return 130
-//    }
 }

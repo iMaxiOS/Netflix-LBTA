@@ -84,7 +84,7 @@ private extension HomeViewController {
     
     @objc func handleSettingVC() {
         let vc = SettingViewController()
-        present(vc, animated: true, completion: nil)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

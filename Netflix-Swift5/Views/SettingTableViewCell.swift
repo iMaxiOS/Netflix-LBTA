@@ -22,7 +22,7 @@ class SettingTableViewCell: UITableViewCell {
     
     private let containerViewWithAlpha: UIView = {
         let view = UIView()
-        view.backgroundColor = .white.withAlphaComponent(0.08)
+        view.backgroundColor = .label.withAlphaComponent(0.05)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.clipsToBounds = true

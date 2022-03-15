@@ -22,6 +22,7 @@
 		ACA572D127DFC3E6004790B8 /* DataNSPersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA572D027DFC3E6004790B8 /* DataNSPersistentManager.swift */; };
 		ACA572D327E0A518004790B8 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA572D227E0A518004790B8 /* SettingViewController.swift */; };
 		ACA572D527E0BBDE004790B8 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA572D427E0BBDE004790B8 /* SettingTableViewCell.swift */; };
+		ACA572D727E0C8CC004790B8 /* HeroSettingUIVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA572D627E0C8CC004790B8 /* HeroSettingUIVIew.swift */; };
 		ACFA4CFB27D8B92800DB7692 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFA27D8B92800DB7692 /* FeedTableViewCell.swift */; };
 		ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFC27D8C27C00DB7692 /* HeroHeaderUIView.swift */; };
 		ACFA4CFF27D939D800DB7692 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */; };
@@ -56,6 +57,7 @@
 		ACA572D027DFC3E6004790B8 /* DataNSPersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNSPersistentManager.swift; sourceTree = "<group>"; };
 		ACA572D227E0A518004790B8 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		ACA572D427E0BBDE004790B8 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		ACA572D627E0C8CC004790B8 /* HeroSettingUIVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroSettingUIVIew.swift; sourceTree = "<group>"; };
 		ACFA4CFA27D8B92800DB7692 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		ACFA4CFC27D8C27C00DB7692 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -148,9 +150,10 @@
 			children = (
 				ACFA4CFA27D8B92800DB7692 /* FeedTableViewCell.swift */,
 				ACFA4CFC27D8C27C00DB7692 /* HeroHeaderUIView.swift */,
+				ACA572D627E0C8CC004790B8 /* HeroSettingUIVIew.swift */,
 				ACFA4D0C27D9FD5300DB7692 /* MovieCollectionViewCell.swift */,
-				ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */,
 				ACA572D427E0BBDE004790B8 /* SettingTableViewCell.swift */,
+				ACFA4D0E27DA4F1600DB7692 /* UpcomingTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				ACFA4CFB27D8B92800DB7692 /* FeedTableViewCell.swift in Sources */,
 				ACFA4D1527DB73D400DB7692 /* YoutubeModelResponse.swift in Sources */,
 				ACFA4CFF27D939D800DB7692 /* NetworkManager.swift in Sources */,
+				ACA572D727E0C8CC004790B8 /* HeroSettingUIVIew.swift in Sources */,
 				ACA572D527E0BBDE004790B8 /* SettingTableViewCell.swift in Sources */,
 				AC3F53CC27D8A604009B74F5 /* MainTabbarViewController.swift in Sources */,
 				ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */,
