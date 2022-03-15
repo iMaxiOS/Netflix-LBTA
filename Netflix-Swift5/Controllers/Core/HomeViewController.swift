@@ -58,7 +58,7 @@ private extension HomeViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: image, style: .done, target: self, action: nil)
         navigationItem.leftBarButtonItem?.isEnabled = false
         
-        let personBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: nil)
+        let personBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: #selector(handleSettingVC))
         let playBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "play.rectangle"), style: .done, target: self, action: nil)
         
         navigationItem.rightBarButtonItems = [personBarButtonItem, playBarButtonItem]
@@ -80,6 +80,11 @@ private extension HomeViewController {
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    @objc func handleSettingVC() {
+        let vc = SettingViewController()
+        present(vc, animated: true, completion: nil)
     }
 }
 
