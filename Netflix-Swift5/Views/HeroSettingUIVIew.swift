@@ -105,11 +105,11 @@ extension HeroSettingUIVIew {
             photoImageView.widthAnchor.constraint(equalToConstant: 64),
             photoImageView.heightAnchor.constraint(equalToConstant: 64),
 
-            verticalStackVeiw.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 10),
+            verticalStackVeiw.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 16),
             verticalStackVeiw.centerYAnchor.constraint(equalTo: baseContainerView.centerYAnchor),
 
             containerViewWithColor.trailingAnchor.constraint(equalTo: baseContainerView.trailingAnchor, constant: -20),
-            containerViewWithColor.leadingAnchor.constraint(equalTo: verticalStackVeiw.trailingAnchor, constant: 10),
+            containerViewWithColor.leadingAnchor.constraint(equalTo: verticalStackVeiw.trailingAnchor, constant: 16),
             containerViewWithColor.centerYAnchor.constraint(equalTo: baseContainerView.centerYAnchor),
             containerViewWithColor.widthAnchor.constraint(equalToConstant: 44),
             containerViewWithColor.heightAnchor.constraint(equalToConstant: 44),
