@@ -64,9 +64,17 @@ private extension FeedTableViewCell {
     
     func download(_ indexPath: IndexPath) -> UIAction {
         return UIAction(title: "Download", image: UIImage(systemName: "square.and.arrow.down")) { [weak self] action in
-            let movie = self?.movies[indexPath.row]
+            guard let movie = self?.movies[indexPath.row] else { return }
             
-            debugPrint(movie?.id ?? 0)
+            shareDataNSPersistentManager().downloadMovieWith(model: movie) { result in
+                switch result {
+                case .success():
+                    print("Download movie success")
+                    NotificationCenter.default.post(name: NSNotification.Name("downloaded"), object: nil)
+                case .failure(let error):
+                    print(error)
+                }
+            }
         }
     }
 }
@@ -113,7 +121,9 @@ extension FeedTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 }
 
 extension FeedTableViewCell: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 140, height: 200)
     }
 }

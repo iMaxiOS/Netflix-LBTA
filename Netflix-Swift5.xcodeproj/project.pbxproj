@@ -18,6 +18,8 @@
 		AC3F53C827D8A563009B74F5 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F53C727D8A563009B74F5 /* SearchViewController.swift */; };
 		AC3F53CA27D8A575009B74F5 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F53C927D8A575009B74F5 /* DownloadsViewController.swift */; };
 		AC3F53CC27D8A604009B74F5 /* MainTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */; };
+		ACA572CF27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACA572CD27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodeld */; };
+		ACA572D127DFC3E6004790B8 /* DataNSPersistentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA572D027DFC3E6004790B8 /* DataNSPersistentManager.swift */; };
 		ACFA4CFB27D8B92800DB7692 /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFA27D8B92800DB7692 /* FeedTableViewCell.swift */; };
 		ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFC27D8C27C00DB7692 /* HeroHeaderUIView.swift */; };
 		ACFA4CFF27D939D800DB7692 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */; };
@@ -48,6 +50,8 @@
 		AC3F53C727D8A563009B74F5 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AC3F53C927D8A575009B74F5 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 		AC3F53CB27D8A604009B74F5 /* MainTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarViewController.swift; sourceTree = "<group>"; };
+		ACA572CE27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Netflix-Swift5CoreData.xcdatamodel"; sourceTree = "<group>"; };
+		ACA572D027DFC3E6004790B8 /* DataNSPersistentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataNSPersistentManager.swift; sourceTree = "<group>"; };
 		ACFA4CFA27D8B92800DB7692 /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
 		ACFA4CFC27D8C27C00DB7692 /* HeroHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderUIView.swift; sourceTree = "<group>"; };
 		ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				ACFA4CF527D8B7AD00DB7692 /* Views */,
 				AC3F53C227D8A4FA009B74F5 /* Controllers */,
 				AC3F53BC27D8A4E8009B74F5 /* Info.plist */,
+				ACA572CD27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodeld */,
 			);
 			path = "Netflix-Swift5";
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				ACFA4CFE27D939D800DB7692 /* NetworkManager.swift */,
+				ACA572D027DFC3E6004790B8 /* DataNSPersistentManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -323,12 +329,14 @@
 			files = (
 				AC3F53C827D8A563009B74F5 /* SearchViewController.swift in Sources */,
 				ACFA4D0127D93A0D00DB7692 /* Constants.swift in Sources */,
+				ACA572CF27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodeld in Sources */,
 				ACFA4CFB27D8B92800DB7692 /* FeedTableViewCell.swift in Sources */,
 				ACFA4D1527DB73D400DB7692 /* YoutubeModelResponse.swift in Sources */,
 				ACFA4CFF27D939D800DB7692 /* NetworkManager.swift in Sources */,
 				AC3F53CC27D8A604009B74F5 /* MainTabbarViewController.swift in Sources */,
 				ACFA4CFD27D8C27C00DB7692 /* HeroHeaderUIView.swift in Sources */,
 				AC3F53CA27D8A575009B74F5 /* DownloadsViewController.swift in Sources */,
+				ACA572D127DFC3E6004790B8 /* DataNSPersistentManager.swift in Sources */,
 				ACFA4D1927DBD5FD00DB7692 /* MoviePreviewViewModel.swift in Sources */,
 				AC3F53AF27D8A4E7009B74F5 /* AppDelegate.swift in Sources */,
 				AC3F53B127D8A4E7009B74F5 /* SceneDelegate.swift in Sources */,
@@ -560,6 +568,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		ACA572CD27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				ACA572CE27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodel */,
+			);
+			currentVersion = ACA572CE27DFC19C004790B8 /* Netflix-Swift5CoreData.xcdatamodel */;
+			path = "Netflix-Swift5CoreData.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AC3F53A327D8A4E7009B74F5 /* Project object */;
 }
